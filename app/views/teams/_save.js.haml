@@ -1,0 +1,9 @@
+$("ul.rails-bootstrap-forms-error-summary").html("")
+- if @team.errors.any?
+  - @team.errors.full_messages.each do |message|
+    $("ul.rails-bootstrap-forms-error-summary").append($("
+    %li>/
+    ").html("#{message.html_safe}"))
+- else
+  $(".teams-index").html("#{j(render @teams)}")
+  $("#team-modal").modal("hide")

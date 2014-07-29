@@ -1,5 +1,87 @@
-// import the CSS framework
-@import "bootstrap";
+//@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+$body-bg: #ecf0f1;
+$font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$navbar-height: 45px;
+$navbar-default-bg: white;
+$navbar-default-brand-color: #c0392b;
+$jumbotron-bg: white;
+
+@import 'bootstrap';
+
+.center {
+  text-align: center;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+// .pages.index {
+//   // background-image: url('http://3.bp.blogspot.com/-VhYizlmG2pM/UUKJOaI9nBI/AAAAAAAAAJc/6jyXJjQwTFE/s1600/garage-sale-003.jpg');
+//   background-color: #cccccc;
+//   background-repeat: no-repeat;
+//   background-position-x: center;
+//   background-size: 100%;
+// }
+
+.jumbotron-home {
+  background-color: rgba(38, 4, 44, 0.54);
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.14286;
+  color: inherit;
+  background-color: rgba(38, 4, 44, 0.54);
+  margin-top: 80px;
+  h1 {
+    color: white;
+    font-size: 63px;
+  }
+  p {
+    margin: 35px 0 5px;
+  }
+  a {
+    width: 135px;
+  }
+}
+
+.thumbnail.center {
+  background-color: white;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .form-group;
+  @extend .has-error;
+  color: #f00;
+}
+
+.bootstrap-tagsinput { width: 100%; }
+
+.navbar .navbar-form{
+  padding: 0 15px;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.nav-name{
+  padding-right: 5px;
+}
+
+.message {
+  padding-left: 40%;
+}
+
 
 // make all images responsive by default
 img {
@@ -34,9 +116,9 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
+  // background-color: #eee;
   padding-bottom: 80px;
-  width: 100%;
+  //width: 100%;
   margin-top: 51px; // accommodate the navbar
   }
 section {
@@ -78,4 +160,28 @@ section {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-xs;
+}
+
+.filterable {
+    margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
 }

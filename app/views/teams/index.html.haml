@@ -1,0 +1,30 @@
+.container
+  .row
+    .panel.panel-primary.filterable
+      .panel-heading
+        %h3.panel-title Teams
+        .pull-right
+          %button.btn.btn-default.btn-xs.btn-filter
+            %span.glyphicon.glyphicon-filter
+            Filter
+      .table-responsive.table
+        %table#teams-table.table.table-bordred.table-striped
+          %thead
+            %tr.filters
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Name", :type => "text"}
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Rank", :type => "text"}
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Logo", :type => "text"}
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Edit", :type => "text"}
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Destroy", :type => "text"}
+          %tbody.teams-index
+            = render @teams
+    %p
+      = link_to new_team_path, remote: true, class: "btn btn-warning btn-sm" do
+        %span.glyphicon.glyphicon-plus &nbsp;Add New Team
+
+#team-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "new", :role => "dialog", :tabindex => "-1"}

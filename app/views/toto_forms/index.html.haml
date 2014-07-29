@@ -1,0 +1,26 @@
+.container
+  .row
+    .panel.panel-primary.filterable
+      .panel-heading
+        %h3.panel-title Toto Forms
+        .pull-right
+          %button.btn.btn-default.btn-xs.btn-filter
+            %span.glyphicon.glyphicon-filter
+            Filter
+      .table-responsive.table
+        %table#teams-table.table.table-bordred.table-striped
+          %thead
+            %tr.filters
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Round", :type => "text"}
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Date", :type => "text"}
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Edit", :type => "text"}
+              %th.center
+                %input.center.form-control{:disabled => "", :placeholder => "Destroy", :type => "text"}
+          %tbody
+            = render @toto_forms
+    %p
+      = link_to new_toto_form_path, class: "btn btn-warning btn-sm" do
+        %span.glyphicon.glyphicon-plus &nbsp;Add New Form

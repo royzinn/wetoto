@@ -1,0 +1,45 @@
+.container
+  .row
+    .col-xs-12
+      = bootstrap_nested_form_for @toto_form, layout: :inline do |f|
+        #matches
+          .panel.panel-primary
+            .panel-heading.clearfix
+              %h3.panel-title.pull-left{style: "padding-top: 7.5px;"} Matches
+              .pull-right
+                = f.number_field :round
+                = f.text_field :round_date, class: "date", label: "Date"
+            .table-responsive.table
+              .table-responsive.table
+                %table#match.table.table-bordred.table-striped
+                  %thead
+                    %tr
+                      %th.center
+                        Home Team
+                      %th.center
+                        Visitor Team
+                      %th.center
+                        Remove
+                  %tbody
+                    = f.fields_for :matches, :wrapper => false do |match_form|
+                      %tr.fields
+                        %td.center= match_form.select :home_team_id, Team.all.map { |team| [team.name, team.id] }, hide_label: true
+                        %td.center= match_form.select :visitor_team_id, Team.all.map { |team| [team.name, team.id] }, hide_label: true
+                        %td.center
+                          %p
+                            = match_form.link_to_remove do
+                              %span.glyphicon.glyphicon-trash{style: "padding-top: 7.5px;"}
+
+          %p
+            = f.link_to_add :matches, :data => { :target => "#match" }, class: "btn btn-primary btn-sm" do
+              %span.glyphicon.glyphicon-plus Add Match
+            = f.submit "Create Toto Form", class: "btn btn-warning btn-sm"
+
+:javascript
+  $('.date').datepicker({
+    format: "dd/mm/yyyy",
+    todayBtn: "linked",
+    language: "he",
+    autoclose: true,
+    todayHighlight: true
+  });

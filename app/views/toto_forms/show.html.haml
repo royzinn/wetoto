@@ -1,0 +1,20 @@
+.container
+  .row
+    .panel.panel-primary.filterable
+      .panel-heading
+        %h3.panel-title.center= "#{@toto_form.round} - מחזור מספר"
+      .table-responsive.table
+        %table#teams-table.table.table-bordred.table-striped
+          %thead
+            %tr
+              %th.center
+              %th.center תוצאות
+              %th.center
+              %th.center
+            %tr
+              %th.center 2
+              %th.center X
+              %th.center 1
+              %th.center משחק
+          %tbody
+            = render partial: "form_matches", collection: @toto_form.matches, as: :match

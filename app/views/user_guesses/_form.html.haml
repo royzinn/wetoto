@@ -1,0 +1,11 @@
+%tr
+  %td.center
+    = radio_button_tag "match[#{index + 1}][]", 2
+    -# %input{id: "radio-#{match_counter}", name: "game-#{match_counter}", type: "radio", value: "game-#{match_counter}"}
+  %td.center
+    = radio_button_tag "match[#{index + 1}][]", 0
+    -# %input{id: "radio-#{match_counter}", name: "game-#{match_counter}", type: "radio", value: "game-#{match_counter}"}
+  %td.center
+    = radio_button_tag "match[#{index + 1}][]", 1
+    -# %input{id: "radio-#{match_counter}", name: "game-#{match_counter}", type: "radio", value: "game-#{match_counter}"}
+  %td.center= link_to "#{match.visitor_team.name} - #{match.home_team.name}", match

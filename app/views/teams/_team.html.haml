@@ -1,0 +1,14 @@
+%tr
+  %td.center= team.name
+  %td.center 1
+  %td.center no logo
+  %td.center
+    %p
+      = link_to edit_team_path(team), remote: true, class: "btn btn-primary btn-xs" do
+        %span.glyphicon.glyphicon-pencil
+  %td.center
+    %p
+      = link_to team_delete_path(team), remote: true, class: "btn btn-danger btn-xs" do
+        %span.glyphicon.glyphicon-trash
+  .clearfix
+

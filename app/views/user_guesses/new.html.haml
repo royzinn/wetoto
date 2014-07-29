@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-xs-8.col-xs-offset-2
+      = bootstrap_form_for(@user_guess) do |f|
+        .panel.panel-primary.filterable
+          .panel-heading
+            %h3.panel-title.center= "#{@toto_form.round} - מחזור מספר"
+          .table-responsive.table
+            %table#teams-table.table.table-bordred.table-striped
+              %thead
+                %tr
+                  %th.center 2
+                  %th.center X
+                  %th.center 1
+                  %th.center משחק
+                %tbody
+                  - @toto_form.matches.each_with_index do |m, i|
+                    = render partial: "form", locals: {match: m, f: f, index: i}
+        = hidden_field_tag "toto_form_id", @toto_form.id
+        = f.submit "שלח טופס", class: "btn btn-primary"

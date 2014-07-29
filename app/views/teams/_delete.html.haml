@@ -1,0 +1,12 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      %h3 Delete Team
+    .modal-body
+      %ul.errors
+      Are you sure you wish to delete
+      = succeed "?" do
+        %b= @team.name
+    .modal-footer
+      = link_to "Yes, Delete This Team", team_path(@team), method: :delete, remote: true, class: "btn btn-danger"
+      = link_to "No, Please Don't", "#", class: "btn", data: { dismiss: "modal" }

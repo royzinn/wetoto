@@ -1,0 +1,5 @@
+%tr
+  - 3.times do |x|
+    %td.center
+      = check_box_tag "game-#{match_counter}", 1, verify_check(x, match), disabled: true
+  %td.center= "#{match.visitor_team.name} - #{match.home_team.name}"

@@ -1,0 +1,11 @@
+.nested-fields
+  = f.select :home_team, Team.all.map { |team| [team.name, team.id] }
+  = f.select :visitor_team, Team.all.map { |team| [team.name, team.id] }
+  = link_to_remove_association "remove match", f
+
+%table#tasks
+  = f.fields_for :tasks, :wrapper => false do |task_form|
+    %tr.fields
+      %td= task_form.text_field :name
+      %td= task_form.link_to_remove "Remove this task"
+%p= f.link_to_add "Add a task", :tasks, :data => { :target => "#tasks" }

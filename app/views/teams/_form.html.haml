@@ -1,0 +1,9 @@
+= bootstrap_form_for(@team, layout: :horizontal, remote: true) do |f|
+  .modal-body
+    = f.error_summary
+    = f.text_field :name
+    = f.form_group :country_code, label: {text: "Country"} do
+      = f.country_select :country, { only: ["IL", "ES", "GB", "FR"], selected: "IL" }, class: 'form-control'
+  .modal-footer
+    = f.submit class: "btn btn-warning"
+    = link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"}
